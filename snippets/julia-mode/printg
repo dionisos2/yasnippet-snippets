@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: printg
+# key: pp
+# --
+println("$0")
