@@ -1,0 +1,21 @@
+# -*- mode: snippet -*-
+# name: validator
+# key: validator
+# --
+
+class DateValidator(cli.switches.Validator):
+    """
+    A switch-type validator that checks the argument is a date
+    """
+
+    def __call__(self, obj):
+        try:
+            obj = date.fromisoformat(obj)
+        except ValueError:
+            print(obj + " is not a date in the correct format : %Y-%m-%d")
+            exit(1)
+
+        return obj
+
+    def __repr__(self):
+        return "Just a date validator"

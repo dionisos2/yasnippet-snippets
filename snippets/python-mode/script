@@ -2,10 +2,24 @@
 # name: script
 # key: script
 # --
-#!/usr/bin/env python
+#!/bin/python
 
-def main():
-    pass
+from plumbum import cli, local # See https://plumbum.readthedocs.io/en/latest/cli.html
 
-if __name__ == '__main__':
-    main()
+class MyApp(cli.Application):
+    """
+    This command does stuffs
+    """
+    verbose = cli.Flag(["v", "verbose"], help="If given, I will be very talkative")
+
+    @cli.switch("--log-to-file", str)
+    def log_to_file(self, filename):
+        """Sets the file into which logs will be emitted"""
+        print("But actually does nothing : ", filename)
+
+    def main(self, date="midnight"):
+        print(date)
+
+
+if __name__ == "__main__":
+    MyApp.run()

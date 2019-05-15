@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: script_switch
+# key: script_switch
+# --
+
+@cli.switch(["n", "nofirefox"])
+def not_open_firefox(self):
+    """Don’t open link in firefox"""
+    self._firefox = False
