@@ -4,7 +4,7 @@
 # --
 #!/bin/python
 
-from plumbum import cli, local # See https://plumbum.readthedocs.io/en/latest/cli.html
+from plumbum import cli, local, FG # See https://plumbum.readthedocs.io/en/latest/cli.html
 
 class MyApp(cli.Application):
     """
